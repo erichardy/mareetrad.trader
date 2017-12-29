@@ -10,7 +10,8 @@
 
 <metal:main fill-slot="main">
 <span tal:replace="structure context/@@authenticator/authenticator"/>
-  <div tal:define="tr view/getTrader">
+  <div tal:define="tr view/getTrader;
+                   mail view/sendToTrader">
     <h1 class="documentFirstHeading" >
         Thanks to register !
     </h1>

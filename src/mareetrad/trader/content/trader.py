@@ -18,15 +18,11 @@ from AccessControl.SecurityManagement import (
 from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
 # from plone.protect.utils import addTokenToUrl
 
-from zope.interface import Invalid
-import re
-
 import logging
+from mareetrad.trader.utils import validateEmail
 from mareetrad.trader import _
 
 logger = logging.getLogger('mareetrad.trader:trader')
-checkEmail = re.compile(
-    r'[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}').match
 
 
 class UnrestrictedUser(BaseUnrestrictedUser):
@@ -36,12 +32,6 @@ class UnrestrictedUser(BaseUnrestrictedUser):
         """Return the ID of the user.
         """
         return 'AnonymousTrader'
-
-
-def validateEmail(value):
-    if not checkEmail(value):
-        raise Invalid(_(u'Invalid adress email'))
-    return True
 
 
 class ITrader(model.Schema):

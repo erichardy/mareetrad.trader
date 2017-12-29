@@ -11,8 +11,10 @@ from AccessControl import getSecurityManager
 from AccessControl.SecurityManagement import (
     newSecurityManager, setSecurityManager)
 from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
-
-
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from Products.CMFPlone.utils import safe_unicode
+from mareetrad.trader.interfaces import IMareetradTraderSettings
 import logging
 
 
@@ -49,6 +51,41 @@ class thanksTraderView(BrowserView):
         setSecurityManager(sm)
         return self.trader
 
+    def sendToTrader(self):
+        sender = api.portal.get_registry_record(
+                'mail_sender',
+                interface=IMareetradTraderSettings)
+        trader = self.getTrader()
+        raw = api.portal.get_registry_record(
+                'trader_message',
+                interface=IMareetradTraderSettings)
+        content = u'Nom: ' + trader.name + u'<br />'
+        content += u'Prénom: ' + trader.firstname + u'<br />'
+        content += u'email: ' + trader.title + u'<br />'
+        content += u'Ville: ' + trader.town + u'<br />'
+        content += u'Age: ' + str(trader.age) + u'<br />'
+        content += u'Tel: ' + trader.mobile + u'<br />'
+        if trader.instrument == u'autre':
+            try:
+                content += u'Intrument: ' + trader.other_instrument + u'<br />'
+            except Exception:
+                content += u'Intrument: aucun !<br />'
+        else:
+            content += u'Intrument: ' + trader.instrument + u'<br />'
 
-# @protect(CheckAuthenticator)
-# def __init__(self, context, request, REQUEST=None):
+        recipient = trader.title
+        raw = raw.replace(
+            u'_trader_description_', content
+            )
+        message = MIMEMultipart()
+        part = MIMEText(safe_unicode(raw), u'html', _charset='utf-8')
+        message.attach(part)
+        subject = u'[Marée Trad] Votre inscription'
+        try:
+            api.portal.send_email(sender,
+                                  recipient=recipient,
+                                  subject=subject,
+                                  body=message)
+        except Exception:
+            logger.info('Error : mail to ' +
+                        recipient + ' Failed !')

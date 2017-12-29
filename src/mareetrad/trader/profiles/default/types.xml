@@ -3,5 +3,4 @@
   <property name="title">Controls the available contenttypes in your portal</property>
   <!--<object name="example_ct" meta_type="Dexterity FTI"/>-->
   <object meta_type="Dexterity FTI" name="trader"/>
-  <object meta_type="Dexterity FTI" name="mareetrad"/>
 </object>

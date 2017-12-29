@@ -28,6 +28,28 @@
     permission="cmf.ManagePortal"
     />
 
+  <!-- trader -->
+  <adapter
+        name="trader"
+	    for="Products.CMFCore.interfaces.IFolderish
+	         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+	         plone.dexterity.interfaces.IDexterityFTI"
+	    provides="zope.publisher.interfaces.browser.IBrowserPage"
+	    factory=".content.trader.AddView"
+    />
+	<class class=".content.trader.AddView">
+	    <require
+	        permission="zope2.View"
+	        interface="zope.publisher.interfaces.browser.IBrowserPage"
+	        />
+	</class>
+	<browser:page
+      name="view"
+      for="mareetrad.trader.content.trader.ITrader"
+      class="mareetrad.trader.content.trader.View"
+      template="content/trader_view.pt"
+      permission="zope2.View"
+      />
 
   <genericsetup:registerProfile
       name="default"
@@ -54,4 +76,11 @@
   <!-- utilities -->
   <utility component=".vocabulary.Instruments" name="trader.instruments" />
 
+  <!-- Events
+  <subscriber
+    for="mareetrad.trader.content.trader.ITrader
+    	 zope.lifecycleevent.IObjectAddedEvent"
+    handler="mareetrad.trader.events.setTraderId"
+    />
+   -->
 </configure>

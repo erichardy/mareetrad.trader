@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
 from plone.supermodel import model
-from zope.schema import TextLine
 from zope.schema import Text
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from mareetrad.trader import _
@@ -26,8 +25,8 @@ Autre
 
 class IMareetradTraderSettings(model.Schema):
     instruments = Text(
-        title=_(u"list of research disciplines related with the college"),
-        description=_(u"one discipline name per line"),
+        title=_(u'list of research disciplines related with the college'),
+        description=_(u'one discipline name per line'),
         default=default_instruments,
         required=True,
         )

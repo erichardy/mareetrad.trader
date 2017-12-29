@@ -18,4 +18,12 @@
       directory="static"
       />
 
+  <browser:page
+      name="thanks_trader_view"
+      for="*"
+      class=".thanks.thanksTraderView"
+      template="thankstraderview.pt"
+      permission="zope2.View"
+      />
+
 </configure>

@@ -30,7 +30,7 @@ def make_voc(terms, linesstr):
 
 
 def make_voc_with_blank(terms, linesstr):
-    terms.append(SimpleVocabulary.createTerm(None, '', u""))
+    terms.append(SimpleVocabulary.createTerm(None, '', u''))
     return SimpleVocabulary(make_terms(terms, linesstr))
 
 

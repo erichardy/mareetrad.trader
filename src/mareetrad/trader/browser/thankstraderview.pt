@@ -11,12 +11,14 @@
 <metal:main fill-slot="main">
 <span tal:replace="structure context/@@authenticator/authenticator"/>
   <div tal:define="tr view/getTrader;
-                   mail view/sendToTrader">
-    <h1 class="documentFirstHeading" >
-        Thanks to register !
-    </h1>
+                   htmlContent python:view.getHTMLContent(tr);
+                   mail python:view.sendToTrader(htmlContent, tr['email']);
+                   ">
+    <h1 class="documentFirstHeading" i18n:translate="">Thanks to register !</h1>
 
-<p>${tr/email}</p>
+    <span tal:replace="structure string:${htmlContent}">htmlContent</span>
+
+
   </div>
 </metal:main>
 

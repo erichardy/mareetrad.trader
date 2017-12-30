@@ -55,28 +55,26 @@ class thanksTraderView(BrowserView):
         obj = uuidToObject(uuid)
         # logger.info(obj.getId())
         self.trader = {}
+        self.trader['title'] = obj.title
         self.trader['email'] = obj.title
         self.trader['name'] = obj.name
         self.trader['firstname'] = obj.firstname
         self.trader['town'] = obj.town
         self.trader['age'] = str(obj.age)
         self.trader['mobile'] = obj.mobile
-        if obj.intrument == u'autre':
+        self.trader['reg_date'] = obj.register_date.strftime('%d/%m/%Y %H:%M')
+        if obj.instrument == u'autre':
             self.trader['instrument'] = obj.other_instrument
         else:
-            self.trader['instrument'] = obj.intrument
+            self.trader['instrument'] = obj.instrument
 
         setSecurityManager(sm)
         return self.trader
 
-    def sendToTrader(self):
-        sender = 'eric.hardy.29@gmail.com'
+    def getHTMLContent(self, trader):
         """
-        sender = api.portal.get_registry_record(
-                'mail_sender',
-                interface=IMareetradTraderSettings)
+        TOTO: prendre le texte à envoyer du dossier parent : mareetrad
         """
-        trader = self.getTrader()
         raw = for_trader_txt
         """
         raw = api.portal.get_registry_record(
@@ -89,13 +87,18 @@ class thanksTraderView(BrowserView):
         content += u'Ville: ' + trader['town'] + u'<br />'
         content += u'Age: ' + trader['age'] + u'<br />'
         content += u'Tel: ' + trader['mobile'] + u'<br />'
-        content += u'Instrument: ' + trader['instrument'] + u'<br />'
-        recipient = trader['email']
+        content += u'Instrument: ' + trader['instrument'] + u'<br /><br />'
+        content += u'Inscription réalisée le : '
+        content += trader['reg_date'] + u'<br />'
         raw = raw.replace(
             u'_trader_description_', content
             )
+        return raw
+
+    def sendToTrader(self, htmlContent, recipient):
+        sender = 'no-reply@maree-trad.net'
         message = MIMEMultipart()
-        part = MIMEText(safe_unicode(raw), u'html', _charset='utf-8')
+        part = MIMEText(safe_unicode(htmlContent), u'html', _charset='utf-8')
         message.attach(part)
         subject = u'[Marée Trad] Votre inscription'
         try:

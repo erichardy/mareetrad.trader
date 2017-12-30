@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-30 12:28+0000\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,26 +12,22 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: mareetrad.trader\n"
-
-#: ./content/trader.py:70
-msgid ""
-msgstr ""
+"Domain: DOMAIN\n"
 
 #: ./content/trader.py:161
 msgid "Cancel registration"
 msgstr ""
 
-#: ./profiles/default/types/trader.xml
+#: ./profiles/default/types/mareetraders.xml
 msgid "Edit"
-msgstr ""
-
-#: ./configure.zcml:61
-msgid "Installs the mareetrad.trader add-on."
 msgstr ""
 
 #: ./utils.py:14
 msgid "Invalid adress email"
+msgstr ""
+
+#: ./profiles/default/types/mareetraders.xml
+msgid "Maree-Traders"
 msgstr ""
 
 #: ./controlpanel.py:12
@@ -45,10 +38,6 @@ msgstr ""
 msgid "Maree-trad trader settings"
 msgstr ""
 
-#: ./profiles/default/types/trader.xml
-msgid "Musician at Maree-Trad"
-msgstr ""
-
 #: ./content/trader.py:141
 msgid "Please correct errors"
 msgstr ""
@@ -57,19 +46,7 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: ./browser/thankstraderview.pt:17
-msgid "Thanks to register !"
-msgstr ""
-
-#: ./profiles/default/types/trader.xml
-msgid "Trader"
-msgstr ""
-
-#: ./configure.zcml:70
-msgid "Uninstalls the mareetrad.trader add-on."
-msgstr ""
-
-#: ./profiles/default/types/trader.xml
+#: ./profiles/default/types/mareetraders.xml
 msgid "View"
 msgstr ""
 
@@ -115,14 +92,6 @@ msgstr ""
 
 #: ./content/mareetraders.py:42
 msgid "mail_sender"
-msgstr ""
-
-#: ./configure.zcml:61
-msgid "mareetrad.trader"
-msgstr ""
-
-#: ./configure.zcml:70
-msgid "mareetrad.trader (uninstall)"
 msgstr ""
 
 #: ./content/mareetraders.py:53

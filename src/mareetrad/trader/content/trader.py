@@ -49,14 +49,20 @@ class ITrader(model.Schema):
     model.primary('name')
     name = schema.TextLine(
         title=_(u'trader name'),
-        description=_(u'your family name'),
+        description=_(u'your family name hidden'),
         default=u'Nomm',
         )
     dexteritytextindexer.searchable('firstname')
     firstname = schema.TextLine(
         title=_(u'trader firstame'),
-        description=_(u'your first name'),
+        description=_(u'your first name hidden'),
         default=u'Prééénomm',
+        )
+    dexteritytextindexer.searchable('pseudo')
+    pseudo = schema.TextLine(
+        title=_(u'trader pseudo'),
+        description=_(u'pseudo'),
+        default=u'pseudo',
         )
     dexteritytextindexer.searchable('town')
     town = schema.TextLine(
@@ -67,33 +73,33 @@ class ITrader(model.Schema):
         )
     age = schema.Int(
         title=_(u'your age'),
-        description=_(u'how old are you'),
+        description=_(u'age hidden'),
         min=1,
         max=110,
         default=33,
         )
     mobile = schema.TextLine(
         title=_(u'mobile phone number'),
-        description=_(u'required to inform you'),
+        description=_(u'required to inform you, hidden'),
         default=u'123123123',
         )
     dexteritytextindexer.searchable('title')
     title = schema.TextLine(
         title=_(u'email adress'),
-        description=_(u'required to inform you'),
+        description=_(u'required to inform you, hidden'),
         constraint=validateEmail,
         default=u'aze.qsd@poi.fr'
         )
     instrument = schema.Choice(
-        title=_(u'intrument played at the maree trad'),
-        description=_(u'if your intrument is not there, choose "Other"'),
+        title=_(u'instrument played at the maree trad'),
+        description=_(u'if your instrument is not there, choose "Other"'),
         source='trader.instruments',
         default=u'',
         required=True,
         )
     other_instrument = schema.TextLine(
-        title=_(u'intrument played'),
-        description=_(u'if your intrument is not in the list above'),
+        title=_(u'instrument played if not in the list above'),
+        description=_(u'do not enter an instrument name which yet above'),
         required=False,
         )
     form.omitted('register_date')

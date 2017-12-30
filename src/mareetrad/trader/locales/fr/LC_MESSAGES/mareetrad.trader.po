@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-30 12:28+0000\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,19 +12,15 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: mareetrad.trader\n"
-
-#: ./content/trader.py:70
-msgid ""
-msgstr ""
+"Domain: DOMAIN\n"
 
 #: ./content/trader.py:161
 msgid "Cancel registration"
-msgstr ""
+msgstr "Annuler l'inscription"
 
 #: ./profiles/default/types/trader.xml
 msgid "Edit"
-msgstr ""
+msgstr "Editer"
 
 #: ./configure.zcml:61
 msgid "Installs the mareetrad.trader add-on."
@@ -35,7 +28,7 @@ msgstr ""
 
 #: ./utils.py:14
 msgid "Invalid adress email"
-msgstr ""
+msgstr "Adresse mail NON valide !"
 
 #: ./controlpanel.py:12
 msgid "Maree-trad trader Settings Description"
@@ -47,23 +40,23 @@ msgstr ""
 
 #: ./profiles/default/types/trader.xml
 msgid "Musician at Maree-Trad"
-msgstr ""
+msgstr "Musicien participant à la marée trad"
 
 #: ./content/trader.py:141
 msgid "Please correct errors"
-msgstr ""
+msgstr "Merci de corriger les erreurs"
 
 #: ./content/trader.py:135
 msgid "Register"
-msgstr ""
+msgstr "S'enregistrer"
 
 #: ./browser/thankstraderview.pt:17
 msgid "Thanks to register !"
-msgstr ""
+msgstr "Merci de vous êtes enregistré !"
 
 #: ./profiles/default/types/trader.xml
 msgid "Trader"
-msgstr ""
+msgstr "Musicien"
 
 #: ./configure.zcml:70
 msgid "Uninstalls the mareetrad.trader add-on."
@@ -71,51 +64,51 @@ msgstr ""
 
 #: ./profiles/default/types/trader.xml
 msgid "View"
-msgstr ""
+msgstr "Voir"
 
 #: ./content/mareetraders.py:48
 msgid "activate mails for this Maree Trad"
-msgstr ""
+msgstr "Activer les mails pour cette marée trad"
 
 #: ./content/trader.py:76
 msgid "age hidden"
-msgstr ""
+msgstr "Votre âge n'apparaît pas sur le site"
 
 #: ./content/trader.py:102
 msgid "do not enter an instrument name which yet above"
-msgstr ""
+msgstr "Ne pas mettre ici un instrument qui est déjà dans la liste ci-dessus !"
 
 #: ./content/trader.py:88
 msgid "email adress"
-msgstr ""
+msgstr "Adresse de courriel"
 
 #: ./content/mareetraders.py:43
 msgid "email adress of the mails sender"
-msgstr ""
+msgstr "Adresse mail de l'expéditeur des mails après enregistrement"
 
 #: ./content/trader.py:95
 msgid "if your instrument is not there, choose \"Other\""
-msgstr ""
+msgstr "Si votre instrument n'est pas dans la liste, choisir \"Autre\""
 
 #: ./content/trader.py:94
 msgid "instrument played at the maree trad"
-msgstr ""
+msgstr "Instrument joué pendant la Marée Trad"
 
 #: ./content/trader.py:101
 msgid "instrument played if not in the list above"
-msgstr ""
+msgstr "Instrument joué pendant la Marée Trad s'il n'est pas dans la liste ci-dessus"
 
 #: ./interfaces.py:28
 msgid "list of instruments"
-msgstr ""
+msgstr "Liste des instruments"
 
 #: ./content/mareetraders.py:54
 msgid "macro _trader_description_"
-msgstr ""
+msgstr "Macro utilisable : _trader_description_"
 
 #: ./content/mareetraders.py:42
 msgid "mail_sender"
-msgstr ""
+msgstr "Expéditeur des mails"
 
 #: ./configure.zcml:61
 msgid "mareetrad.trader"
@@ -127,60 +120,60 @@ msgstr ""
 
 #: ./content/mareetraders.py:53
 msgid "message sent to traders after register"
-msgstr ""
+msgstr "Message envoyé à un participant suite à son inscription"
 
 #: ./content/trader.py:82
 msgid "mobile phone number"
-msgstr ""
+msgstr "N° de téléphone mobile"
 
 #: ./interfaces.py:29
 msgid "one instrument name per line"
-msgstr ""
+msgstr "Un instrument par ligne"
 
 #: ./content/trader.py:64
 msgid "pseudo"
-msgstr ""
+msgstr "Pseudonyme"
 
 #: ./content/trader.py:126
 msgid "register a new trader !"
-msgstr ""
+msgstr "Inscription à une participation à la Marée Trad"
 
 #: ./content/trader.py:107
 msgid "registring date"
-msgstr ""
+msgstr "Date d'inscription"
 
 #: ./content/trader.py:83
 msgid "required to inform you, hidden"
-msgstr ""
+msgstr "nécessaire pour vous informer mais n'apparaît pas sur le site"
 
 #: ./content/trader.py:69
 msgid "the town where you live"
-msgstr ""
+msgstr "Votre ville"
 
 #: ./content/trader.py:57
 msgid "trader firstame"
-msgstr ""
+msgstr "Prénom"
 
 #: ./content/trader.py:51
 msgid "trader name"
-msgstr ""
+msgstr "Nom"
 
 #: ./content/trader.py:63
 msgid "trader pseudo"
-msgstr ""
+msgstr "Seul votre pseudo est visible sur le site"
 
 #: ./content/mareetraders.py:49
 msgid "unselect to de-activate mails"
-msgstr ""
+msgstr "Dé-cocher pour désactiver les mails"
 
 #: ./content/trader.py:75
 msgid "your age"
-msgstr ""
+msgstr "Votre âge"
 
 #: ./content/trader.py:52
 msgid "your family name hidden"
-msgstr ""
+msgstr "Votre nom de famille n'apparaît pas sur le site"
 
 #: ./content/trader.py:58
 msgid "your first name hidden"
-msgstr ""
+msgstr "Votre prénom n'apparaît pas sur le site"

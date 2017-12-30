@@ -59,6 +59,7 @@ class thanksTraderView(BrowserView):
         self.trader['email'] = obj.title
         self.trader['name'] = obj.name
         self.trader['firstname'] = obj.firstname
+        self.trader['pseudo'] = obj.pseudo
         self.trader['town'] = obj.town
         self.trader['age'] = str(obj.age)
         self.trader['mobile'] = obj.mobile
@@ -84,6 +85,7 @@ class thanksTraderView(BrowserView):
         content = u'Nom: ' + trader['name'] + u'<br />'
         content += u'Prénom: ' + trader['firstname'] + u'<br />'
         content += u'email: ' + trader['email'] + u'<br />'
+        content += u'Pseudo: ' + trader['pseudo'] + u'<br />'
         content += u'Ville: ' + trader['town'] + u'<br />'
         content += u'Age: ' + trader['age'] + u'<br />'
         content += u'Tel: ' + trader['mobile'] + u'<br />'

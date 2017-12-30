@@ -25,8 +25,8 @@ Autre
 
 class IMareetradTraderSettings(model.Schema):
     instruments = Text(
-        title=_(u'list of research disciplines related with the college'),
-        description=_(u'one discipline name per line'),
+        title=_(u'list of instruments'),
+        description=_(u'one instrument name per line'),
         default=default_instruments,
         required=True,
         )

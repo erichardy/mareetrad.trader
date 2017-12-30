@@ -66,6 +66,7 @@ class thanksTraderView(BrowserView):
         self.trader['reg_date'] = obj.register_date.strftime('%d/%m/%Y %H:%M')
         self.trader['mails_activated'] = obj.aq_parent.mails_activated
         self.trader['sender'] = obj.aq_parent.sender_registration
+        self.trader['html'] = obj.aq_parent.for_traders
         if obj.instrument == u'autre':
             self.trader['instrument'] = obj.other_instrument
         else:
@@ -78,12 +79,9 @@ class thanksTraderView(BrowserView):
         """
         TOTO: prendre le texte à envoyer du dossier parent : mareetrad
         """
-        raw = for_trader_txt
-        """
-        raw = api.portal.get_registry_record(
-                'trader_message',
-                interface=IMareetradTraderSettings)
-        """
+        # import pdb;pdb.set_trace()
+        raw = trader['html'].output
+
         content = u'Nom: ' + trader['name'] + u'<br />'
         content += u'Prénom: ' + trader['firstname'] + u'<br />'
         content += u'email: ' + trader['email'] + u'<br />'

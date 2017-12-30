@@ -15,32 +15,40 @@
 <style>
 
 </style>
-<div tal:define="traders python:context.getTraders()">
 
-	<span tal:repeat="tr traders">
-		<p tal:content="python:tr.title"></p>
-		<p tal:content="python:tr.register_date"></p>
-		<p tal:content="python:tr.instrument"></p>
-		<p tal:content="python:tr.pseudo"></p>
-		<hr />
-	</span>
-</div>
+<span tal:replace="structure string:${context/getPrologue}">prologue</span>
 
-<hr />
-<hr />
 <div tal:define="traders python:context.getTraders(byDate=True)">
-
-	<span tal:repeat="tr traders">
-		<p tal:content="python:tr.title"></p>
-		<p tal:content="python:tr.register_date"></p>
-		<p tal:content="python:tr.instrument"></p>
-		<p tal:content="python:tr.pseudo"></p>
-		<hr />
-	</span>
+	<table id="mareetraders">
+	<thead>
+	<tr>
+	  <th>N°</th>
+	  <th i18n:translate="">pseudo</th>
+	  <th i18n:translate="">instrument</th>
+	  <th i18n:translate="">town</th>
+	</tr>
+	</thead>
+	<tbody>
+		<span tal:omit-tag="" tal:repeat="tr traders">
+		  <tr>
+			<td tal:content="python:tr['number']"></td>
+			<td tal:content="python:tr['pseudo']"></td>
+			<td tal:content="python:tr['instrument']"></td>
+			<td tal:content="python:tr['town']"></td>
+		  </tr>
+		</span>
+	</tbody>
+	</table>
 </div>
+
+<span tal:replace="structure string:${context/getEpilogue}">prologue</span>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#mareetraders').DataTable();
+});
+</script>
 
 </metal:main>
-
-
 </body>
 </html>

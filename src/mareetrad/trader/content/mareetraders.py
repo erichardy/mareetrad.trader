@@ -85,11 +85,45 @@ class mareeTraders(Container):
             context=self,
             portal_type='trader',
             )
-        traders = [t.getObject() for t in traders_found]
-        setSecure(sm)
         if byDate:
-            return sorted(traders, sorted_by_date)
+            tradersObjs = sorted(
+                [t.getObject() for t in traders_found],
+                sorted_by_date
+                )
+        else:
+            tradersObjs = [t.getObject() for t in traders_found]
+        traders = []
+        i = 1
+        for t in tradersObjs:
+            tr = {}
+            tr['number'] = str(i)
+            tr['pseudo'] = t.pseudo
+            tr['town'] = t.town
+            tr['instrument'] = t.instrument
+            if t.instrument == 'autre':
+                tr['instrument'] = t.other_instrument
+            i += 1
+            traders.append(tr)
+        setSecure(sm)
         return traders
+
+    def getPrologue(self):
+        try:
+            richtext = self.before.output
+            if len(richtext) > 6:
+                return richtext
+        except Exception:
+            return u''
+        return u''
+
+    def getEpilogue(self):
+        try:
+            richtext = self.after.output
+            if len(richtext) > 6:
+                return richtext
+        except Exception:
+            return u''
+        return u''
 
 
 class View(BrowserView):

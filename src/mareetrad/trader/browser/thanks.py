@@ -14,11 +14,20 @@ from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from Products.CMFPlone.utils import safe_unicode
-from mareetrad.trader.interfaces import IMareetradTraderSettings
+# from mareetrad.trader.interfaces import IMareetradTraderSettings
 import logging
 
 
 logger = logging.getLogger('mareetrad.trader:Thanks: ')
+
+
+for_trader_txt = u"""
+<h2>Vous venez de vous inscrire pour la Marée Trad 2018</h2>
+<p>Vous avez saisi les éléments ci-dessous :</p>
+<p>_trader_description_</p>
+<p>Vous serez averti de la suite des événements plus tard</p>
+<p> </p>
+"""
 
 
 class UnrestrictedUser(BaseUnrestrictedUser):
@@ -48,32 +57,40 @@ class thanksTraderView(BrowserView):
         self.trader = {}
         self.trader['email'] = obj.title
         self.trader['name'] = obj.name
+        self.trader['firstname'] = obj.firstname
+        self.trader['town'] = obj.town
+        self.trader['age'] = str(obj.age)
+        self.trader['mobile'] = obj.mobile
+        if obj.intrument == u'autre':
+            self.trader['instrument'] = obj.other_instrument
+        else:
+            self.trader['instrument'] = obj.intrument
+
         setSecurityManager(sm)
         return self.trader
 
     def sendToTrader(self):
+        sender = 'eric.hardy.29@gmail.com'
+        """
         sender = api.portal.get_registry_record(
                 'mail_sender',
                 interface=IMareetradTraderSettings)
+        """
         trader = self.getTrader()
+        raw = for_trader_txt
+        """
         raw = api.portal.get_registry_record(
                 'trader_message',
                 interface=IMareetradTraderSettings)
-        content = u'Nom: ' + trader.name + u'<br />'
-        content += u'Prénom: ' + trader.firstname + u'<br />'
-        content += u'email: ' + trader.title + u'<br />'
-        content += u'Ville: ' + trader.town + u'<br />'
-        content += u'Age: ' + str(trader.age) + u'<br />'
-        content += u'Tel: ' + trader.mobile + u'<br />'
-        if trader.instrument == u'autre':
-            try:
-                content += u'Intrument: ' + trader.other_instrument + u'<br />'
-            except Exception:
-                content += u'Intrument: aucun !<br />'
-        else:
-            content += u'Intrument: ' + trader.instrument + u'<br />'
-
-        recipient = trader.title
+        """
+        content = u'Nom: ' + trader['name'] + u'<br />'
+        content += u'Prénom: ' + trader['firstname'] + u'<br />'
+        content += u'email: ' + trader['email'] + u'<br />'
+        content += u'Ville: ' + trader['town'] + u'<br />'
+        content += u'Age: ' + trader['age'] + u'<br />'
+        content += u'Tel: ' + trader['mobile'] + u'<br />'
+        content += u'Instrument: ' + trader['instrument'] + u'<br />'
+        recipient = trader['email']
         raw = raw.replace(
             u'_trader_description_', content
             )

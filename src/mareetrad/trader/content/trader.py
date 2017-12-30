@@ -54,6 +54,7 @@ class ITrader(model.Schema):
     town = schema.TextLine(
         title=_(u'the town where you live'),
         description=_(u''),
+        default=u'Brest',
         required=False,
         )
     age = schema.Int(

@@ -45,6 +45,7 @@ setup(
         'setuptools',
         'z3c.jbot',
         'collective.dexteritytextindexer',
+        'collective.behavior.textcaptcha',
     ],
     extras_require={
         'test': [

@@ -124,9 +124,10 @@ class dataSet(BrowserView):
     def purgeDataSet(self):
         mt = self.portal.get('maree-trad-2020')
         logger.info(mt)
+        api.content.delete(obj=mt)
         try:
             mt = self.portal.get('maree-trad-2020')
             api.content.delete(obj=mt)
         except Exception:
-            logger.info('No tune to purge !!!')
+            logger.info('No mareetraders to purge !!!')
             pass

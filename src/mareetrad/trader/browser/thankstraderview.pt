@@ -12,7 +12,8 @@
 <span tal:replace="structure context/@@authenticator/authenticator"/>
   <div tal:define="tr view/getTrader;
                    htmlContent python:view.getHTMLContent(tr);
-                   mail python:view.sendToTrader(htmlContent, tr['email']);
+                   sender python:tr['sender'];
+                   mail python:view.sendToTrader(tr['mails_activated'], htmlContent, tr['email'], sender);
                    ">
     <h1 class="documentFirstHeading" i18n:translate="">Thanks to register !</h1>
 

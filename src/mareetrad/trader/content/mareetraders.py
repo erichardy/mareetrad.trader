@@ -47,6 +47,12 @@ class IMareeTraders(model.Schema):
         default=u'aze.qsd@poi.fr',
         constraint=validateEmail
         )
+    sender_registration = schema.TextLine(
+        title=_(u'mail_sender for registration confirm'),
+        description=_(u'email adress of the mail registration sender'),
+        default=u'no-reply@maree-trad.net',
+        constraint=validateEmail
+        )
     mails_activated = schema.Bool(
         title=_(u'activate mails for this Maree Trad'),
         description=_(u'unselect to de-activate mails'),

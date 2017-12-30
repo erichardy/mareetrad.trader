@@ -15,6 +15,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+	$('#form-widgets-other_instrument').val('autre');
     var intrument = $('#form-widgets-instrument').val();
 	$('#formfield-form-widgets-other_instrument').hide();
 	if (intrument == 'autre') {
@@ -24,10 +25,10 @@ $(document).ready(function(){
     	newVal = $(this).val();
     	if (newVal == "autre") {
     		$('#formfield-form-widgets-other_instrument').show();
-    		$('#formfield-form-widgets-other_instrument').val('');
+    		$('#form-widgets-other_instrument').val('');
     	} else {
     		$('#formfield-form-widgets-other_instrument').hide();
-    		$('#formfield-form-widgets-other_instrument').val('autre');
+    		$('#form-widgets-other_instrument').val('autre');
     	}
     })
 });

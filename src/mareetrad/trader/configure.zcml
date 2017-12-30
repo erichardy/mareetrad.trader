@@ -51,6 +51,16 @@
       permission="zope2.View"
       />
 
+  <!-- mareetraders -->
+	<browser:page
+      name="view"
+      for="mareetrad.trader.content.mareetraders.IMareeTraders"
+      class="mareetrad.trader.content.mareetraders.View"
+      template="content/mareetraders_view.pt"
+      permission="zope2.View"
+      />
+
+
   <genericsetup:registerProfile
       name="default"
       title="mareetrad.trader"
@@ -76,11 +86,19 @@
   <!-- utilities -->
   <utility component=".vocabulary.Instruments" name="trader.instruments" />
 
-  <!-- Events
+  Events
   <subscriber
     for="mareetrad.trader.content.trader.ITrader
     	 zope.lifecycleevent.IObjectAddedEvent"
-    handler="mareetrad.trader.events.setTraderId"
+    handler="mareetrad.trader.events.setTraderRegistrationDate"
     />
-   -->
+
+   
+  <browser:page
+      name="createdataset"
+      for="*"
+      class=".utils.dataSet"
+      permission="cmf.ManagePortal"
+      />
+
 </configure>

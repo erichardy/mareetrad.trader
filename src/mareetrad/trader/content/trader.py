@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from plone import api
-import datetime
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
 from plone.dexterity.browser import add
@@ -10,9 +9,8 @@ from plone.supermodel import model
 from Products.Five import BrowserView
 from z3c.form import button
 from zope import schema
+from z3c.form.interfaces import IEditForm
 from zope.interface import implementer
-from zope.interface import provider
-from zope.schema.interfaces import IContextAwareDefaultFactory
 from collective import dexteritytextindexer
 
 from AccessControl import getSecurityManager
@@ -35,11 +33,6 @@ class UnrestrictedUser(BaseUnrestrictedUser):
         """Return the ID of the user.
         """
         return 'AnonymousTrader'
-
-
-@provider(IContextAwareDefaultFactory)
-def registerDate(context):
-    return datetime.datetime.today()
 
 
 class ITrader(model.Schema):
@@ -103,10 +96,11 @@ class ITrader(model.Schema):
         required=False,
         )
     form.omitted('register_date')
+    form.no_omit(IEditForm, 'register_date',)
     register_date = schema.Datetime(
         title=_(u'registring date'),
         required=False,
-        defaultFactory=registerDate
+        # defaultFactory=registerDate
         )
 
 
@@ -117,7 +111,16 @@ class Trader(Item):
 
 
 class View(BrowserView):
-    pass
+    title = _(u'view')
+
+    def listRawFields(self):
+        context = self.context
+        # out = OrderedDict()
+        out = []
+        fields = schema.getFieldsInOrder(ITrader)
+        for name, field in fields:
+            out.append((name, getattr(context, name, None)))
+        return out
 
 
 class AddForm(add.DefaultAddForm):

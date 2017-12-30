@@ -17,9 +17,29 @@
 </style>
 <div>
 
-Trader view
+    <table border="1" id="trader">
+		<thead>
+			<tr>
+			<th>attr</th><th>value</th>
+			</tr>
+		</thead>
+		<tbody>
+		    <span tal:repeat="field view/listRawFields">
+		    <tr>
+		      <td tal:content="python:field[0]"></td>
+		      <td tal:content="python:field[1]"></td>
+		    </tr>
+		    </span>
+		</tbody>
+    </table>
 	
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#trader').DataTable();
+});
+</script>
 
 </metal:main>
 

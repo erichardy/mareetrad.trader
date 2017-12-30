@@ -46,16 +46,11 @@
 
   <!-- View information -->
   <property name="add_view_expr">string:${folder_url}/++add++mareetraders</property>
-  <property name="default_view">listing_view</property>
-  <property name="default_view_fallback">False</property>
+  <property name="default_view">view</property>
+  <property name="default_view_fallback">True</property>
   <property name="immediate_view">view</property>
   <property name="view_methods">
-    <element value="album_view"/>
-    <element value="event_listing"/>
-    <element value="full_view"/>
-    <element value="listing_view"/>
-    <element value="summary_view"/>
-    <element value="tabular_view"/>
+    <element value="view"/>
   </property>
 
   <!-- Method aliases -->

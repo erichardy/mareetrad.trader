@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# from plone import api
+from plone import api
 import datetime
 from plone.dexterity.content import Container
 from plone.app.textfield import RichText
@@ -12,9 +12,12 @@ from zope.interface import implementer
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 from collective import dexteritytextindexer
-
+from AccessControl import getSecurityManager
 import logging
 from mareetrad.trader.utils import validateEmail
+from mareetrad.trader.utils import setUnsecure
+from mareetrad.trader.utils import setSecure
+from mareetrad.trader.utils import sorted_by_date
 from mareetrad.trader import _
 
 logger = logging.getLogger('mareetrad.trader:trader')
@@ -49,6 +52,14 @@ class IMareeTraders(model.Schema):
         description=_(u'unselect to de-activate mails'),
         default=True
         )
+    before = RichText(
+        title=_(u'text before the traders list'),
+        required=False
+        )
+    after = RichText(
+        title=_(u'text after the traders list'),
+        required=False
+        )
     for_traders = RichText(
         title=_(u'message sent to traders after register'),
         description=_(u'macro _trader_description_'),
@@ -61,6 +72,18 @@ class IMareeTraders(model.Schema):
 class mareeTraders(Container):
     """
     """
+    def getTraders(self, byDate=False):
+        sm = getSecurityManager()
+        setUnsecure(sm)
+        traders_found = api.content.find(
+            context=self,
+            portal_type='trader',
+            )
+        traders = [t.getObject() for t in traders_found]
+        setSecure(sm)
+        if byDate:
+            return sorted(traders, sorted_by_date)
+        return traders
 
 
 class View(BrowserView):

@@ -14,7 +14,7 @@ from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from Products.CMFPlone.utils import safe_unicode
-# from mareetrad.trader.interfaces import IMareetradTraderSettings
+from mareetrad.trader.utils import mareeTradMailActivated
 import logging
 
 
@@ -98,6 +98,9 @@ class thanksTraderView(BrowserView):
         return raw
 
     def sendToTrader(self, htmlContent, recipient):
+        if not mareeTradMailActivated(self):
+            logger.info('Mails not activated !')
+            return
         sender = 'no-reply@maree-trad.net'
         message = MIMEMultipart()
         part = MIMEText(safe_unicode(htmlContent), u'html', _charset='utf-8')

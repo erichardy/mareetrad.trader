@@ -46,6 +46,7 @@ setup(
         'z3c.jbot',
         'collective.dexteritytextindexer',
         'collective.behavior.textcaptcha',
+        'collective.js.datatables',
     ],
     extras_require={
         'test': [

@@ -23,6 +23,8 @@ import logging
 from mareetrad.trader.utils import validateEmail
 from mareetrad.trader import _
 
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 logger = logging.getLogger('mareetrad.trader:trader')
 
 
@@ -93,7 +95,7 @@ class ITrader(model.Schema):
     other_instrument = schema.TextLine(
         title=_(u'instrument played if not in the list above'),
         description=_(u'do not enter an instrument name which yet above'),
-        required=False,
+        required=True,
         )
     form.omitted('register_date')
     form.no_omit(IEditForm, 'register_date',)
@@ -127,6 +129,7 @@ class AddForm(add.DefaultAddForm):
     portal_type = 'trader'
     ignoreContext = True
     label = _(u'register a new trader !')
+    template = ViewPageTemplateFile('trader_add_view.pt')
 
     def update(self):
         super(add.DefaultAddForm, self).update()

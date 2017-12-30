@@ -47,6 +47,7 @@ setup(
         'collective.dexteritytextindexer',
         'collective.behavior.textcaptcha',
         'collective.js.datatables',
+        'zope.app.pagetemplate',
     ],
     extras_require={
         'test': [

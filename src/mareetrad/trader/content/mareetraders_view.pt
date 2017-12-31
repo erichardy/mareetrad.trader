@@ -45,9 +45,20 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#mareetraders').DataTable();
+    traders = $('#mareetraders').DataTable({
+    		"searching": true,
+    		"scrollY": "800px",
+    		"scrollCollapse": true,
+    		"paging": false,
+    		"scrollCollapse": true,
+    		"lengthChange": true
+    		}
+    );
 });
 </script>
+<span tal:replace="nothing">
+DataTable ref : https://www.datatables.net/reference/option/
+</span>
 
 </metal:main>
 </body>

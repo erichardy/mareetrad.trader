@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./content/trader.py:161
+#: ./content/trader.py:167
 msgid "Cancel registration"
 msgstr ""
 
@@ -22,11 +22,15 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ./configure.zcml:61
+#: ./configure.zcml:71
 msgid "Installs the mareetrad.trader add-on."
 msgstr ""
 
-#: ./utils.py:14
+#: ./content/mareetraders_view.pt:27
+msgid "Instrument"
+msgstr ""
+
+#: ./utils.py:21
 msgid "Invalid adress email"
 msgstr ""
 
@@ -42,23 +46,27 @@ msgstr ""
 msgid "Musician at Maree-Trad"
 msgstr ""
 
-#: ./content/trader.py:141
+#: ./content/trader.py:147
 msgid "Please correct errors"
 msgstr ""
 
-#: ./content/trader.py:135
+#: ./content/trader.py:141
 msgid "Register"
 msgstr ""
 
-#: ./browser/thankstraderview.pt:17
+#: ./browser/thankstraderview.pt:18
 msgid "Thanks to register !"
+msgstr ""
+
+#: ./browser/import_traders.py:26
+msgid "This will create traders"
 msgstr ""
 
 #: ./profiles/default/types/trader.xml
 msgid "Trader"
 msgstr ""
 
-#: ./configure.zcml:70
+#: ./configure.zcml:80
 msgid "Uninstalls the mareetrad.trader add-on."
 msgstr ""
 
@@ -66,35 +74,43 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: ./content/mareetraders.py:48
+#: ./content/mareetraders.py:57
 msgid "activate mails for this Maree Trad"
 msgstr ""
 
-#: ./content/trader.py:76
+#: ./content/trader.py:71
 msgid "age hidden"
 msgstr ""
 
-#: ./content/trader.py:102
+#: ./content/trader.py:97
 msgid "do not enter an instrument name which yet above"
 msgstr ""
 
-#: ./content/trader.py:88
+#: ./content/trader.py:83
 msgid "email adress"
 msgstr ""
 
-#: ./content/mareetraders.py:43
+#: ./content/mareetraders.py:52
+msgid "email adress of the mail registration sender"
+msgstr ""
+
+#: ./content/mareetraders.py:46
 msgid "email adress of the mails sender"
 msgstr ""
 
-#: ./content/trader.py:95
+#: ./content/trader.py:90
 msgid "if your instrument is not there, choose \"Other\""
 msgstr ""
 
-#: ./content/trader.py:94
+#: ./browser/import_traders.py:25
+msgid "import csv file..."
+msgstr ""
+
+#: ./content/trader.py:89
 msgid "instrument played at the maree trad"
 msgstr ""
 
-#: ./content/trader.py:101
+#: ./content/trader.py:96
 msgid "instrument played if not in the list above"
 msgstr ""
 
@@ -102,27 +118,31 @@ msgstr ""
 msgid "list of instruments"
 msgstr ""
 
-#: ./content/mareetraders.py:54
+#: ./content/mareetraders.py:71
 msgid "macro _trader_description_"
 msgstr ""
 
-#: ./content/mareetraders.py:42
+#: ./content/mareetraders.py:45
 msgid "mail_sender"
 msgstr ""
 
-#: ./configure.zcml:61
+#: ./content/mareetraders.py:51
+msgid "mail_sender for registration confirm"
+msgstr ""
+
+#: ./configure.zcml:71
 msgid "mareetrad.trader"
 msgstr ""
 
-#: ./configure.zcml:70
+#: ./configure.zcml:80
 msgid "mareetrad.trader (uninstall)"
 msgstr ""
 
-#: ./content/mareetraders.py:53
+#: ./content/mareetraders.py:70
 msgid "message sent to traders after register"
 msgstr ""
 
-#: ./content/trader.py:82
+#: ./content/trader.py:77
 msgid "mobile phone number"
 msgstr ""
 
@@ -130,50 +150,67 @@ msgstr ""
 msgid "one instrument name per line"
 msgstr ""
 
-#: ./content/trader.py:64
+#: ./content/mareetraders_view.pt:26
+#: ./content/trader.py:59
 msgid "pseudo"
 msgstr ""
 
-#: ./content/trader.py:126
+#: ./content/trader.py:131
 msgid "register a new trader !"
 msgstr ""
 
-#: ./content/trader.py:107
+#: ./content/trader.py:103
 msgid "registring date"
 msgstr ""
 
-#: ./content/trader.py:83
+#: ./content/trader.py:78
 msgid "required to inform you, hidden"
 msgstr ""
 
-#: ./content/trader.py:69
+#: ./content/mareetraders.py:66
+msgid "text after the traders list"
+msgstr ""
+
+#: ./content/mareetraders.py:62
+msgid "text before the traders list"
+msgstr ""
+
+#: ./content/trader.py:64
 msgid "the town where you live"
 msgstr ""
 
-#: ./content/trader.py:57
-msgid "trader firstame"
-msgstr ""
-
-#: ./content/trader.py:51
-msgid "trader name"
-msgstr ""
-
-#: ./content/trader.py:63
-msgid "trader pseudo"
-msgstr ""
-
-#: ./content/mareetraders.py:49
-msgid "unselect to de-activate mails"
-msgstr ""
-
-#: ./content/trader.py:75
-msgid "your age"
+#: ./content/mareetraders_view.pt:28
+msgid "town"
 msgstr ""
 
 #: ./content/trader.py:52
-msgid "your family name hidden"
+msgid "trader firstame"
+msgstr ""
+
+#: ./content/trader.py:46
+msgid "trader name"
 msgstr ""
 
 #: ./content/trader.py:58
+msgid "trader pseudo"
+msgstr ""
+
+#: ./content/mareetraders.py:58
+msgid "unselect to de-activate mails"
+msgstr ""
+
+#: ./content/trader.py:116
+msgid "view"
+msgstr ""
+
+#: ./content/trader.py:70
+msgid "your age"
+msgstr ""
+
+#: ./content/trader.py:47
+msgid "your family name hidden"
+msgstr ""
+
+#: ./content/trader.py:53
 msgid "your first name hidden"
 msgstr ""

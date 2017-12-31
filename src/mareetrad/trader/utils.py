@@ -51,8 +51,9 @@ def sorted_by_date(trader1, trader2):
     d2 = trader2.register_date
     if d1 > d2:
         return 1
-    else:
+    if d1 < d2:
         return -1
+    return 0
 
 
 def mareeTradMailActivated(context):

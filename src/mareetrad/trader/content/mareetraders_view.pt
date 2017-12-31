@@ -24,7 +24,7 @@
 	<tr>
 	  <th>N°</th>
 	  <th i18n:translate="">pseudo</th>
-	  <th i18n:translate="">instrument</th>
+	  <th i18n:translate="">Instrument</th>
 	  <th i18n:translate="">town</th>
 	</tr>
 	</thead>

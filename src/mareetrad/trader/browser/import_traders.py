@@ -42,17 +42,15 @@ class importTraders(form.Form):
                     age=eval(attrs[4]),
                     mobile=attrs[5],
                     title=attrs[6],
-                    register_date=datetime.strptime(attrs[7], '%Y/%M/%d'),
                     instrument=eval(attrs[8])[0],
-                    other_instrument=attrs[9]
+                    other_instrument=attrs[9],
                     )
-                instrument = eval(attrs[8])[0].lower()
-                if instrument == 'autre':
-                    trader.instrument = instrument
-                trader.register_date = datetime.strptime(attrs[7], '%Y/%M/%d')
+                if trader.instrument.lower() == 'autre':
+                    trader.instrument = 'autre'
+                trader.register_date = datetime.strptime(attrs[7], '%Y/%m/%d')
                 trader.reindexObject()
             except Exception:
-                logger.info(line)
+                logger.info('!!!' + line)
 
     @button.buttonAndHandler(u'Ok')
     def handleApply(self, action):

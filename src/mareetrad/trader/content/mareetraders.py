@@ -103,6 +103,7 @@ class mareeTraders(Container):
             if t.instrument == 'autre':
                 tr['instrument'] = t.other_instrument
             i += 1
+            tr['date'] = t.register_date.strftime('%d/%m/%Y %H:%M')
             traders.append(tr)
         setSecure(sm)
         return traders

@@ -26,4 +26,12 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      name="importCSV-traders"
+      for="*"
+      class=".import_traders.importTraders"
+      permission="cmf.ManagePortal"
+      />
+
+
 </configure>

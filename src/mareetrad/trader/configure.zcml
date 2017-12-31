@@ -95,7 +95,7 @@
 
    
   <browser:page
-      name="createdataset"
+      name="createdataset-trader"
       for="*"
       class=".utils.dataSet"
       permission="cmf.ManagePortal"

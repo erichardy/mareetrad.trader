@@ -5,10 +5,10 @@
 <object name="object_buttons" meta_type="CMF Action Category">
   <property name="title"></property>
 
-  <object name="create_dataset" meta_type="CMF Action" i18n:domain="plone">
-   <property name="title" i18n:translate="">create dataset</property>
+  <object name="create_traders" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">create traders</property>
    <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:${object_url}/@@createdataset</property>
+   <property name="url_expr">string:${object_url}/@@createdataset-trader</property>
    <property name="link_target"></property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
@@ -18,10 +18,10 @@
    <property name="visible">True</property>
   </object>
 
-  <object name="purge_dataset" meta_type="CMF Action" i18n:domain="plone">
-   <property name="title" i18n:translate="">purge dataset</property>
+  <object name="purge_traders" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">purge traders</property>
    <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:${object_url}/@@createdataset?purge=1</property>
+   <property name="url_expr">string:${object_url}/@@createdataset-trader?purge=1</property>
    <property name="link_target"></property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>

@@ -58,6 +58,17 @@ class IMareeTraders(model.Schema):
         description=_(u'unselect to de-activate mails'),
         default=True
         )
+    mail_notification = schema.TextLine(
+        title=_(u'mail address for notification'),
+        description=_(u'email adress of the mail registration sender'),
+        default=u'aze.qsd@poi.fr',
+        constraint=validateEmail
+        )
+    send_notification = schema.Bool(
+        title=_(u'do we send notification ?'),
+        description=_(u'unselect to de-activate notification'),
+        default=True
+        )
     before = RichText(
         title=_(u'text before the traders list'),
         required=False

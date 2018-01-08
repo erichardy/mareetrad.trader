@@ -45,25 +45,25 @@ class ITrader(model.Schema):
     name = schema.TextLine(
         title=_(u'trader name'),
         description=_(u'your family name hidden'),
-        default=u'Nomm',
+        default=u'',
         )
     dexteritytextindexer.searchable('firstname')
     firstname = schema.TextLine(
         title=_(u'trader firstame'),
         description=_(u'your first name hidden'),
-        default=u'Prééénomm',
+        default=u'',
         )
     dexteritytextindexer.searchable('pseudo')
     pseudo = schema.TextLine(
         title=_(u'trader pseudo'),
         description=_(u'pseudo'),
-        default=u'pseudo',
+        default=u'',
         )
     dexteritytextindexer.searchable('town')
     town = schema.TextLine(
         title=_(u'the town where you live'),
         description=_(u''),
-        default=u'Brest',
+        default=u'',
         required=False,
         )
     age = schema.Int(
@@ -71,19 +71,17 @@ class ITrader(model.Schema):
         description=_(u'age hidden'),
         min=1,
         max=110,
-        default=33,
         )
     mobile = schema.TextLine(
         title=_(u'mobile phone number'),
         description=_(u'required to inform you, hidden'),
-        default=u'123123123',
+        default=u'',
         )
     dexteritytextindexer.searchable('title')
     title = schema.TextLine(
         title=_(u'email adress'),
         description=_(u'required to inform you, hidden'),
         constraint=validateEmail,
-        default=u'aze.qsd@poi.fr'
         )
     instrument = schema.Choice(
         title=_(u'instrument played at the maree trad'),

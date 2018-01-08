@@ -14,6 +14,7 @@
                    htmlContent python:view.getHTMLContent(tr);
                    sender python:tr['sender'];
                    mail python:view.sendToTrader(tr['mails_activated'], htmlContent, tr['email'], sender);
+                   notification python:view.sendNotification(tr['send_notification'], htmlContent, tr['mail_notification'], sender);
                    ">
     <h1 class="documentFirstHeading" i18n:translate="">Thanks to register !</h1>
 

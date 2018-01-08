@@ -66,6 +66,8 @@ class thanksTraderView(BrowserView):
         self.trader['reg_date'] = obj.register_date.strftime('%d/%m/%Y %H:%M')
         self.trader['mails_activated'] = obj.aq_parent.mails_activated
         self.trader['sender'] = obj.aq_parent.sender_registration
+        self.trader['send_notification'] = obj.aq_parent.send_notification
+        self.trader['mail_notification'] = obj.aq_parent.mail_notification
         self.trader['html'] = obj.aq_parent.for_traders
         if obj.instrument == u'autre':
             self.trader['instrument'] = obj.other_instrument
@@ -104,6 +106,33 @@ class thanksTraderView(BrowserView):
         part = MIMEText(safe_unicode(htmlContent), u'html', _charset='utf-8')
         message.attach(part)
         subject = u'[Marée Trad] Votre inscription'
+        try:
+            api.portal.send_email(sender,
+                                  recipient=recipient,
+                                  subject=subject,
+                                  body=message)
+        except Exception:
+            logger.info('Error : mail to ' +
+                        recipient + ' Failed !')
+
+    def sendNotification(self,
+                         send_notification,
+                         htmlContent,
+                         recipient,
+                         sender):
+        if not send_notification:
+            return
+        message = MIMEMultipart()
+        messageContent = u'<h3>Une nouvelle inscription'
+        messageContent += u'à la marée trad :</h3>'
+        messageContent += u'<br />'
+        messageContent += htmlContent
+        part = MIMEText(
+            safe_unicode(messageContent),
+            u'html',
+            _charset='utf-8')
+        message.attach(part)
+        subject = u'[Marée Trad] Nouvelle inscription...'
         try:
             api.portal.send_email(sender,
                                   recipient=recipient,

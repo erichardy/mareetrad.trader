@@ -86,7 +86,7 @@
   <!-- utilities -->
   <utility component=".vocabulary.Instruments" name="trader.instruments" />
 
-  Events
+  <!-- Events -->
   <subscriber
     for="mareetrad.trader.content.trader.ITrader
     	 zope.lifecycleevent.IObjectAddedEvent"

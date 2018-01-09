@@ -14,6 +14,9 @@ from zope.schema.interfaces import IContextAwareDefaultFactory
 from collective import dexteritytextindexer
 from AccessControl import getSecurityManager
 import logging
+from zope.schema.interfaces import IVocabularyFactory
+from zope.component import getUtility
+
 from mareetrad.trader.utils import validateEmail
 from mareetrad.trader.utils import setUnsecure
 from mareetrad.trader.utils import setSecure
@@ -89,6 +92,19 @@ class IMareeTraders(model.Schema):
 class mareeTraders(Container):
     """
     """
+    def getInstrument(self, instrument_token):
+        """
+        :returns: le label à afficher correspondant à la clé
+        """
+        instruments = getUtility(
+            IVocabularyFactory,
+            name='trader.instruments')
+        try:
+            return instruments(
+                self).getTermByToken(instrument_token).title
+        except Exception:
+            return instrument_token
+
     def getTraders(self, byDate=False):
         sm = getSecurityManager()
         setUnsecure(sm)
@@ -110,9 +126,11 @@ class mareeTraders(Container):
             tr['number'] = str(i)
             tr['pseudo'] = t.pseudo
             tr['town'] = t.town
-            tr['instrument'] = t.instrument
             if t.instrument == 'autre':
                 tr['instrument'] = t.other_instrument
+            else:
+                tr['instrument'] = self.getInstrument(t.instrument)
+                # tr['instrument'] = t.instrument
             i += 1
             tr['date'] = t.register_date.strftime('%d/%m/%Y %H:%M')
             traders.append(tr)

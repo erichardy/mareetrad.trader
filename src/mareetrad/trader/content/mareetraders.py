@@ -42,12 +42,26 @@ def registerDate(context):
 class IMareeTraders(model.Schema):
     """ Marker interfce and Dexterity Python Schema for Trader
     """
-
+    model.fieldset('mail',
+                   label=_('mails'),
+                   fields=[
+                       'mails_activated',
+                       'mail_sender',
+                       'sender_registration',
+                       'send_notification',
+                       'mail_notification',
+                       'for_traders',
+                       ])
+    mails_activated = schema.Bool(
+        title=_(u'activate mails confirmation for this Maree Trad'),
+        description=_(u'unselect to de-activate mails'),
+        default=True
+        )
     dexteritytextindexer.searchable('mail_sender')
     mail_sender = schema.TextLine(
         title=_(u'mail_sender'),
         description=_(u'email adress of the mails sender'),
-        default=u'aze.qsd@poi.fr',
+        default=u'no-reply@maree-trad.net',
         constraint=validateEmail
         )
     sender_registration = schema.TextLine(
@@ -56,15 +70,10 @@ class IMareeTraders(model.Schema):
         default=u'no-reply@maree-trad.net',
         constraint=validateEmail
         )
-    mails_activated = schema.Bool(
-        title=_(u'activate mails for this Maree Trad'),
-        description=_(u'unselect to de-activate mails'),
-        default=True
-        )
     mail_notification = schema.TextLine(
         title=_(u'mail address for notification'),
-        description=_(u'email adress of the mail registration sender'),
-        default=u'aze.qsd@poi.fr',
+        description=_(u'email adress of the mail notification receiver'),
+        default=u'no-reply@maree-trad.net',
         constraint=validateEmail
         )
     send_notification = schema.Bool(
@@ -72,18 +81,24 @@ class IMareeTraders(model.Schema):
         description=_(u'unselect to de-activate notification'),
         default=True
         )
+    for_traders = RichText(
+        title=_(u'message sent to traders after register'),
+        description=_(u'macro _trader_description_'),
+        default=for_trader_txt,
+        required=False
+        )
+    model.fieldset('textx',
+                   label=_('traders list texts'),
+                   fields=[
+                       'before',
+                       'after',
+                       ])
     before = RichText(
         title=_(u'text before the traders list'),
         required=False
         )
     after = RichText(
         title=_(u'text after the traders list'),
-        required=False
-        )
-    for_traders = RichText(
-        title=_(u'message sent to traders after register'),
-        description=_(u'macro _trader_description_'),
-        default=for_trader_txt,
         required=False
         )
 

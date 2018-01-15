@@ -56,15 +56,15 @@ class ITrader(model.Schema):
     dexteritytextindexer.searchable('pseudo')
     pseudo = schema.TextLine(
         title=_(u'trader pseudo'),
-        description=_(u'pseudo'),
+        description=_(u'personal pseudo'),
         default=u'',
         )
     dexteritytextindexer.searchable('town')
     town = schema.TextLine(
         title=_(u'the town where you live'),
-        description=_(u''),
+        description=_(u'not too accurate'),
         default=u'',
-        required=False,
+        required=True,
         )
     age = schema.Int(
         title=_(u'your age'),

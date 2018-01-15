@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"POT-Creation-Date: 2018-01-15 11:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./content/trader.py:167
+#: ./content/trader.py:165
 msgid "Cancel registration"
 msgstr ""
 
@@ -42,11 +42,15 @@ msgstr ""
 msgid "Maree-trad trader settings"
 msgstr ""
 
-#: ./content/trader.py:147
+#: ./profiles/default/controlpanel.xml
+msgid "Misc configuration parameters for maree trad"
+msgstr ""
+
+#: ./content/trader.py:145
 msgid "Please correct errors"
 msgstr ""
 
-#: ./content/trader.py:141
+#: ./content/trader.py:139
 msgid "Register"
 msgstr ""
 
@@ -58,8 +62,8 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: ./content/mareetraders.py:57
-msgid "activate mails for this Maree Trad"
+#: ./content/mareetraders.py:56
+msgid "activate mails confirmation for this Maree Trad"
 msgstr ""
 
 #: ./content/trader.py:71
@@ -67,26 +71,34 @@ msgid "age hidden"
 msgstr ""
 
 #: ./profiles/default/actions.xml
-msgid "create dataset"
+msgid "create traders"
 msgstr ""
 
-#: ./content/trader.py:97
+#: ./content/trader.py:95
 msgid "do not enter an instrument name which yet above"
 msgstr ""
 
-#: ./content/trader.py:83
+#: ./content/mareetraders.py:80
+msgid "do we send notification ?"
+msgstr ""
+
+#: ./content/trader.py:82
 msgid "email adress"
 msgstr ""
 
-#: ./content/mareetraders.py:52
+#: ./content/mareetraders.py:75
+msgid "email adress of the mail notification receiver"
+msgstr ""
+
+#: ./content/mareetraders.py:69
 msgid "email adress of the mail registration sender"
 msgstr ""
 
-#: ./content/mareetraders.py:46
+#: ./content/mareetraders.py:63
 msgid "email adress of the mails sender"
 msgstr ""
 
-#: ./content/trader.py:90
+#: ./content/trader.py:88
 msgid "if your instrument is not there, choose \"Other\""
 msgstr ""
 
@@ -94,11 +106,11 @@ msgstr ""
 msgid "import csv file..."
 msgstr ""
 
-#: ./content/trader.py:89
+#: ./content/trader.py:87
 msgid "instrument played at the maree trad"
 msgstr ""
 
-#: ./content/trader.py:96
+#: ./content/trader.py:94
 msgid "instrument played if not in the list above"
 msgstr ""
 
@@ -106,24 +118,36 @@ msgstr ""
 msgid "list of instruments"
 msgstr ""
 
-#: ./content/mareetraders.py:71
+#: ./content/mareetraders.py:86
 msgid "macro _trader_description_"
 msgstr ""
 
-#: ./content/mareetraders.py:45
+#: ./content/mareetraders.py:74
+msgid "mail address for notification"
+msgstr ""
+
+#: ./content/mareetraders.py:62
 msgid "mail_sender"
 msgstr ""
 
-#: ./content/mareetraders.py:51
+#: ./content/mareetraders.py:68
 msgid "mail_sender for registration confirm"
 msgstr ""
 
-#: ./content/mareetraders.py:70
+#: ./content/mareetraders.py:46
+msgid "mails"
+msgstr ""
+
+#: ./content/mareetraders.py:85
 msgid "message sent to traders after register"
 msgstr ""
 
-#: ./content/trader.py:77
+#: ./content/trader.py:76
 msgid "mobile phone number"
+msgstr ""
+
+#: ./content/trader.py:65
+msgid "not too accurate"
 msgstr ""
 
 #: ./interfaces.py:29
@@ -131,30 +155,30 @@ msgid "one instrument name per line"
 msgstr ""
 
 #: ./content/trader.py:59
-msgid "pseudo"
+msgid "personal pseudo"
 msgstr ""
 
 #: ./profiles/default/actions.xml
-msgid "purge dataset"
+msgid "purge traders"
 msgstr ""
 
-#: ./content/trader.py:131
+#: ./content/trader.py:129
 msgid "register a new trader !"
 msgstr ""
 
-#: ./content/trader.py:103
+#: ./content/trader.py:101
 msgid "registring date"
 msgstr ""
 
-#: ./content/trader.py:78
+#: ./content/trader.py:77
 msgid "required to inform you, hidden"
 msgstr ""
 
-#: ./content/mareetraders.py:66
+#: ./content/mareetraders.py:101
 msgid "text after the traders list"
 msgstr ""
 
-#: ./content/mareetraders.py:62
+#: ./content/mareetraders.py:97
 msgid "text before the traders list"
 msgstr ""
 
@@ -174,11 +198,19 @@ msgstr ""
 msgid "trader pseudo"
 msgstr ""
 
-#: ./content/mareetraders.py:58
+#: ./content/mareetraders.py:91
+msgid "traders list texts"
+msgstr ""
+
+#: ./content/mareetraders.py:57
 msgid "unselect to de-activate mails"
 msgstr ""
 
-#: ./content/trader.py:116
+#: ./content/mareetraders.py:81
+msgid "unselect to de-activate notification"
+msgstr ""
+
+#: ./content/trader.py:114
 msgid "view"
 msgstr ""
 

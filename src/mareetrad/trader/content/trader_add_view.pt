@@ -31,6 +31,21 @@ $(document).ready(function(){
     		$('#form-widgets-other_instrument').val('autre');
     	}
     })
+    // id="form-widgets-accept_movie-0"
+    // id="form-widgets-accept_pay-0"
+    // form-buttons-register
+    $('#form-buttons-register').click(function(e){
+    	onMovie = $('#form-widgets-accept_movie-0').is(':checked');
+    	if (onMovie != true){
+    		alert("Pour participer à la Marée-Trad, vous devez accepter d'être filmé-e");
+    		e.preventDefault();
+    	}
+        toPay = $('#form-widgets-accept_pay-0').is(':checked');
+        if (toPay != true){
+            alert("Pour participer à la Marée-Trad, vous devez accepter de participer aux frais d'organisation");
+            e.preventDefault();
+        }
+    })
 });
 </script>
 

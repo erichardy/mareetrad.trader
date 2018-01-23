@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-15 11:18+0000\n"
+"POT-Creation-Date: 2018-01-23 11:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./content/trader.py:165
+#: ./content/trader.py:173
 msgid "Cancel registration"
 msgstr "Annuler l'inscription"
 
@@ -46,11 +46,11 @@ msgstr "Paramètres pour Maree-trad"
 msgid "Musician at Maree-Trad"
 msgstr "Musicien participant à la marée trad"
 
-#: ./content/trader.py:145
+#: ./content/trader.py:153
 msgid "Please correct errors"
 msgstr "Merci de corriger les erreurs"
 
-#: ./content/trader.py:139
+#: ./content/trader.py:147
 msgid "Register"
 msgstr "S'enregistrer"
 
@@ -73,6 +73,14 @@ msgstr "Dé-installe le module mareetrad.trader"
 #: ./profiles/default/types/trader.xml
 msgid "View"
 msgstr "Voir"
+
+#: ./content/trader.py:99
+msgid "accept to be on movie"
+msgstr "J'ai compris que je serai filmé, et je ne m'y oppose pas"
+
+#: ./content/trader.py:103
+msgid "accept to pay 5 euros"
+msgstr "J'ai compris que je devrai participer aux frais d'organisation et je m'y engage (5€)"
 
 #: ./content/mareetraders.py:56
 msgid "activate mails confirmation for this Maree Trad"
@@ -178,11 +186,11 @@ msgstr "Votre pseudo est visible sur le site"
 msgid "pseudo"
 msgstr "Pseudonyme"
 
-#: ./content/trader.py:129
+#: ./content/trader.py:137
 msgid "register a new trader !"
 msgstr "Inscription à une participation à la Marée Trad"
 
-#: ./content/trader.py:101
+#: ./content/trader.py:109
 msgid "registring date"
 msgstr "Date d'inscription"
 
@@ -230,7 +238,7 @@ msgstr "Dé-cocher pour désactiver les mails"
 msgid "unselect to de-activate notification"
 msgstr "Dé-cocher pour désactiver les notifications"
 
-#: ./content/trader.py:114
+#: ./content/trader.py:122
 msgid "view"
 msgstr "Voir"
 

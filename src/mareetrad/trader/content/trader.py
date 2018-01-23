@@ -97,12 +97,10 @@ class ITrader(model.Schema):
         )
     accept_movie = schema.Bool(
         title=_(u'accept to be on movie'),
-        description=_(u'you cannot subscribe if not'),
         required=True,
         default=False)
     accept_pay = schema.Bool(
         title=_(u'accept to pay 5 euros'),
-        description=_(u'you cannot subscribe if not'),
         required=True,
         default=False)
     form.omitted('register_date')

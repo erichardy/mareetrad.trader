@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-15 11:18+0000\n"
+"POT-Creation-Date: 2018-01-23 11:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./content/trader.py:165
+#: ./content/trader.py:173
 msgid "Cancel registration"
 msgstr ""
 
@@ -46,11 +46,11 @@ msgstr ""
 msgid "Misc configuration parameters for maree trad"
 msgstr "Configuration de Marée-Trad"
 
-#: ./content/trader.py:145
+#: ./content/trader.py:153
 msgid "Please correct errors"
 msgstr ""
 
-#: ./content/trader.py:139
+#: ./content/trader.py:147
 msgid "Register"
 msgstr ""
 
@@ -61,6 +61,14 @@ msgstr ""
 #: ./profiles/default/types/mareetraders.xml
 msgid "View"
 msgstr "Voir"
+
+#: ./content/trader.py:99
+msgid "accept to be on movie"
+msgstr ""
+
+#: ./content/trader.py:103
+msgid "accept to pay 5 euros"
+msgstr ""
 
 #: ./content/mareetraders.py:56
 msgid "activate mails confirmation for this Maree Trad"
@@ -162,11 +170,11 @@ msgstr ""
 msgid "purge traders"
 msgstr ""
 
-#: ./content/trader.py:129
+#: ./content/trader.py:137
 msgid "register a new trader !"
 msgstr ""
 
-#: ./content/trader.py:101
+#: ./content/trader.py:109
 msgid "registring date"
 msgstr ""
 
@@ -210,7 +218,7 @@ msgstr ""
 msgid "unselect to de-activate notification"
 msgstr ""
 
-#: ./content/trader.py:114
+#: ./content/trader.py:122
 msgid "view"
 msgstr ""
 

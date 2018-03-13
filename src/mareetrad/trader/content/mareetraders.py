@@ -120,7 +120,30 @@ class mareeTraders(Container):
         except Exception:
             return instrument_token
 
+    def getTradersMails(self):
+        traders_found = api.content.find(
+            context=self,
+            portal_type='trader',
+            )
+        mails = []
+        for t in traders_found:
+            mails.append(t.getObject().title)
+        return ','.join(mails)
+
+    def getAllTraders(self):
+        traders_found = api.content.find(
+            context=self,
+            portal_type='trader',
+            )
+        return sorted(
+            [t.getObject() for t in traders_found],
+            sorted_by_date
+            )
+
     def getTraders(self, byDate=False):
+        """
+        used in view for all traders, so private fields are not returned
+        """
         sm = getSecurityManager()
         setUnsecure(sm)
         traders_found = api.content.find(

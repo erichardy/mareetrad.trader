@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="mareetrad.trader">
+
+<body>
+
+<metal:main fill-slot="main">
+<span tal:replace="structure context/@@authenticator/authenticator"/>
+  <div tal:define="mails context/getTradersMails;
+                   ">
+    <h1 i18n:translate="">click on the list to open mailer</h1>
+
+    <a href="" tal:attributes="href string:mailto:${mails}" tal:content="string:${mails}">mails</a>
+
+  </div>
+</metal:main>
+
+</body>
+</html>

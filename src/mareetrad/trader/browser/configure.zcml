@@ -28,10 +28,17 @@
 
   <browser:page
       name="importCSV-traders"
-      for="*"
+      for="mareetrad.trader.content.mareetraders.IMareeTraders"
       class=".import_traders.importTraders"
       permission="cmf.ManagePortal"
       />
 
+  <browser:page
+      name="send-mail-all"
+      for="mareetrad.trader.content.mareetraders.IMareeTraders"
+      class=".send_mail_all.sendMailAll"
+      template="send_mail_all.pt"
+      permission="cmf.ModifyPortalContent"
+      />
 
 </configure>

@@ -124,7 +124,7 @@ class thanksTraderView(BrowserView):
             return
         message = MIMEMultipart()
         messageContent = u'<h3>Une nouvelle inscription'
-        messageContent += u'à la marée trad :</h3>'
+        messageContent += u' à la marée trad :</h3>'
         messageContent += u'<br />'
         messageContent += htmlContent
         part = MIMEText(

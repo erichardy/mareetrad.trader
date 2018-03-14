@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="mareetrad.trader">
+
+<head>
+<metal:js fill-slot="javascript_head_slot">
+</metal:js>
+</head>
+<body>
+<metal:main fill-slot="main">
+<style>
+
+</style>
+
+<div tal:define="traders python:context.getAllTraders();
+                 fields python:['name', 'firstname', 'title', 'mobile', 'age', 'pseudo', 'register_date', 'town', 'instrument', 'other_instrument'];
+                 allfields python:traders[0].getFields()">
+    <table id="mareetraders">
+    <thead>
+    <tr>
+      <span tal:omit-tag="" tal:repeat="f fields">
+        <th tal:content="string:${f}">field</th>
+      </span>
+    </tr>
+    </thead>
+    <tbody>
+        <span tal:omit-tag="" tal:repeat="tr traders">
+          <tr>
+          <span tal:omit-tag="" tal:repeat="f fields">
+            <td tal:content="python:getattr(tr, f, None)">field value</td>
+          </span>
+          </tr>
+        </span>
+    </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    traders = $('#mareetraders').DataTable({
+            "searching": true,
+            "scrollY": "800px",
+            "scrollCollapse": true,
+            "paging": false,
+            "scrollCollapse": true,
+            "lengthChange": true,
+            "columnDefs": [{ className: "email-adress", "targets": [ 2] }]
+            }
+    );
+    $('td.email-adress').each(function(){
+    	email = $(this).html();
+    	$(this).html('<a href="mailto:' + email + '">' + email + '</a>');
+    });
+    /* ne fonctionne pas
+    $('td.email-adress i').each(function(){
+    	$(this).removeClass('link-mailto');
+    	console.log($(this));
+    });
+    */
+});
+</script>
+<span tal:replace="nothing">
+DataTable ref : https://www.datatables.net/reference/option/
+</span>
+
+</metal:main>
+</body>
+</html>

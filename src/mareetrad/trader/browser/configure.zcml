@@ -41,4 +41,12 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <browser:page
+      name="display-traders-data"
+      for="mareetrad.trader.content.mareetraders.IMareeTraders"
+      class=".display_traders_data.displayTradersData"
+      template="display_traders_data.pt"
+      permission="cmf.ModifyPortalContent"
+      />
+
 </configure>

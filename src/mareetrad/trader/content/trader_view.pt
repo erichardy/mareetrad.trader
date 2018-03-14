@@ -24,7 +24,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		    <span tal:repeat="field view/listRawFields">
+		    <span tal:repeat="field context/listRawFields">
 		    <tr>
 		      <td tal:content="python:field[0]"></td>
 		      <td tal:content="python:field[1]"></td>

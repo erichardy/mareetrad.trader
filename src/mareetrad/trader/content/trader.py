@@ -116,6 +116,18 @@ class ITrader(model.Schema):
 class Trader(Item):
     """
     """
+    def getFields(self):
+        fields = schema.getFields(ITrader)
+        return fields.keys()
+
+    def listRawFields(self):
+        context = self
+        # out = OrderedDict()
+        out = []
+        fields = schema.getFieldsInOrder(ITrader)
+        for name, field in fields:
+            out.append((name, getattr(context, name, None)))
+        return out
 
 
 class View(BrowserView):

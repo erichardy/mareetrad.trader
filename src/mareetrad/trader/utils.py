@@ -76,14 +76,34 @@ trader1 = {}
 trader1['title'] = u'tr1@tr1.tr1'
 trader1['pseudo'] = u'tr1 pseudo'
 trader1['instrument'] = u'tr1 instrument'
+trader1['other_instrument'] = u'Cymballes'
+trader1['town'] = u'Brest'
+trader1['age'] = 23
+trader1['name'] = u'trader1'
+trader1['firstname'] = u'fff trader1'
+trader1['mobile'] = u'12 23 34 45 56'
 trader2 = {}
 trader2['title'] = u'tr2@tr2.tr2'
 trader2['pseudo'] = u'tr2 pseudo'
 trader2['instrument'] = u'tr2 instrument'
+trader2['other_instrument'] = u'Cymballes'
+trader2['town'] = u'Quimper'
+trader2['age'] = 54
+trader2['name'] = u'trader2 trader2'
+trader2['firstname'] = u'fff trader2'
+trader2['mobile'] = u'12 56 54 65 76'
+
 trader3 = {}
 trader3['title'] = u'tr3@tr3.tr3'
 trader3['pseudo'] = u'tr3 pseudo'
-trader3['instrument'] = u'tr3 instrument'
+trader3['instrument'] = u'autre'
+trader3['other_instrument'] = u'Cymballes'
+trader3['town'] = u'Ailleurs'
+trader3['age'] = 76
+trader3['name'] = u'trader3'
+trader3['firstname'] = u'fff trader3'
+trader3['mobile'] = u'11 12 22 23 33'
+
 traders = [trader1, trader2, trader3]
 
 
@@ -120,6 +140,12 @@ class dataSet(BrowserView):
             title=trader['title'],
             pseudo=trader['pseudo'],
             instrument=trader['instrument'],
+            other_instrument=trader['other_instrument'],
+            town=trader['town'],
+            age=trader['age'],
+            name=trader['name'],
+            firstname=trader['firstname'],
+            mobile=trader['mobile'],
             )
 
     def purgeDataSet(self):

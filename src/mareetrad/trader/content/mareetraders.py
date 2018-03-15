@@ -140,6 +140,41 @@ class mareeTraders(Container):
             sorted_by_date
             )
 
+    def getTradersAllData(self):
+        """
+        used site manager
+        """
+        traders_found = api.content.find(
+            context=self,
+            portal_type='trader',
+            )
+        tradersObjs = sorted(
+            [t.getObject() for t in traders_found],
+            sorted_by_date
+            )
+        traders = []
+        i = 1
+        for t in tradersObjs:
+            tr = {}
+            tr['number'] = str(i)
+            tr['name'] = t.name
+            tr['firstname'] = t.firstname
+            tr['age'] = t.age
+            tr['mobile'] = t.mobile
+            tr['email'] = t.title
+            tr['pseudo'] = t.pseudo
+            tr['town'] = t.town
+            if t.instrument == 'autre':
+                tr['instrument'] = t.other_instrument
+            else:
+                tr['instrument'] = self.getInstrument(t.instrument)
+                # tr['instrument'] = t.instrument
+            i += 1
+            tr['date'] = t.register_date.strftime('%d/%m/%Y %H:%M')
+            traders.append(tr)
+        # import pdb;pdb.set_trace()
+        return traders
+
     def getTraders(self, byDate=False):
         """
         used in view for all traders, so private fields are not returned

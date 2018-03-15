@@ -13,13 +13,17 @@
 <body>
 <metal:main fill-slot="main">
 <style>
-
+#traders-data {
+  width: 1300px;
+  font-size: 10px;
+  margin: 0px 0px 0px -130px;
+}
 </style>
 
-<div tal:define="traders python:context.getAllTraders();
-                 fields python:['name', 'firstname', 'title', 'mobile', 'age', 'pseudo', 'register_date', 'town', 'instrument', 'other_instrument'];
-                 allfields python:traders[0].getFields()">
-    <table id="mareetraders">
+<div id="traders-data" tal:define="traders python:context.getTradersAllData();
+                 fields python:['No', 'Nom', 'Pseudo', 'Mail', 'Tel.', 'age', 'Inscription', 'Ville', 'Instrument'];
+                 ">
+    <table id="mareetraders" class="table-responsive">
     <thead>
     <tr>
       <span tal:omit-tag="" tal:repeat="f fields">
@@ -30,9 +34,15 @@
     <tbody>
         <span tal:omit-tag="" tal:repeat="tr traders">
           <tr>
-          <span tal:omit-tag="" tal:repeat="f fields">
-            <td tal:content="python:getattr(tr, f, None)">field value</td>
-          </span>
+            <td tal:content="string:${tr/number}">nb</td>
+            <td tal:content="string:${tr/name} ${tr/firstname}">nom prenom</td>
+            <td tal:content="string:${tr/pseudo}">pseudo</td>
+            <td><a href="#" tal:attributes="href string:mailto:${tr/email}" tal:content="string:${tr/email}" /></td>
+            <td tal:content="string:${tr/mobile}">tel mobile</td>
+            <td tal:content="string:${tr/age}">age</td>
+            <td tal:content="string:${tr/date}">date inscription</td>
+            <td tal:content="string:${tr/town}">ville</td>
+            <td tal:content="string:${tr/instrument}">instrument</td>            
           </tr>
         </span>
     </tbody>
@@ -48,13 +58,15 @@ $(document).ready(function(){
             "paging": false,
             "scrollCollapse": true,
             "lengthChange": true,
-            "columnDefs": [{ className: "email-adress", "targets": [ 2] }]
+            "columnDefs": [{ className: "email-adress", "targets": [ 3] }]
             }
     );
+    /*
     $('td.email-adress').each(function(){
     	email = $(this).html();
     	$(this).html('<a href="mailto:' + email + '">' + email + '</a>');
     });
+    */
     /* ne fonctionne pas
     $('td.email-adress i').each(function(){
     	$(this).removeClass('link-mailto');

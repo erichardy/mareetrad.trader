@@ -75,7 +75,7 @@ def publish(obj):
 trader1 = {}
 trader1['title'] = u'tr1@tr1.tr1'
 trader1['pseudo'] = u'tr1 pseudo'
-trader1['instrument'] = u'tr1 instrument'
+trader1['instrument'] = u'accordéon'
 trader1['other_instrument'] = u'Cymballes'
 trader1['town'] = u'Brest'
 trader1['age'] = 23

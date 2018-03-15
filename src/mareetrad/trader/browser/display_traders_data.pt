@@ -56,15 +56,15 @@
 lines = u''
 for tr in traders:
     lines += str(tr['number']) + u'|'
-    lines += tr['name'] + u'|'
-    lines += tr['firstname'] + u'|'
-    lines += tr['pseudo'] + u'|'
+    lines += unicode(tr['name']) + u'|'
+    lines += unicode(tr['firstname']) + u'|'
+    lines += unicode(tr['pseudo']) + u'|'
     lines += tr['email'] + u'|'
     lines += tr['mobile'] + u'|'
     lines += str(tr['age']) + u'|'
     lines += tr['date'] + u'|'
-    lines += tr['town'] + u'|'
-    lines += tr['instrument']
+    lines += unicode(tr['town']) + u'|'
+    lines += unicode(tr['instrument'])
     lines += u'\n'
 ?>
 

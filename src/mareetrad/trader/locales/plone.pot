@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-03-15 22:05+0000\n"
+"POT-Creation-Date: 2018-03-15 23:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,10 @@ msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "Mail to all traders"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Mail to everybody"
 msgstr ""
 
 #: ./profiles/default/types/mareetraders.xml

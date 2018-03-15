@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="mareetrad.trader">
+
+<body>
+
+<metal:main fill-slot="main">
+  <div tal:define="folders view/getMusiciansFolders;
+                   mfolders python:request.form.get('mf');
+                   ">
+    <form action="#" tal:attributes="action string:${portal_url}/@@send-mail-all-musicians">
+    <span tal:omit-tag="" tal:repeat="f folders">
+        <input type="checkbox" tal:attributes="name string:mf; value python:f[1]" /> <span tal:content="python:f[0].title"></span>
+        <p />
+    </span>
+    <input type="submit" />
+    </form>
+    <div tal:condition="string:${mfolders}">
+      <div tal:define="list_emails python:view.getMusicians(mfolders);
+                       emails python:','.join(list_emails)">
+      <h3 tal:content="python:'Envoyer un message &agrave; ces ' + str(len(list_emails)) + ' personnes'"></h3>
+        <a href="#" tal:attributes="href string:mailto:${emails}"
+           tal:content="string:${emails}">emails</a>
+      </div>
+    </div>
+  </div>
+</metal:main>
+
+</body>
+</html>

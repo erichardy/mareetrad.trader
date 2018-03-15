@@ -40,7 +40,13 @@
       template="send_mail_all.pt"
       permission="cmf.ModifyPortalContent"
       />
-
+  <browser:page
+      name="send-mail-all-musicians"
+      for="*"
+      class=".send_mail_all_musicians.sendMailAllMusicians"
+      template="send_mail_all_musicians.pt"
+      permission="cmf.ModifyPortalContent"
+      />
   <browser:page
       name="display-traders-data"
       for="mareetrad.trader.content.mareetraders.IMareeTraders"
@@ -48,5 +54,6 @@
       template="display_traders_data.pt"
       permission="cmf.ModifyPortalContent"
       />
+
 
 </configure>

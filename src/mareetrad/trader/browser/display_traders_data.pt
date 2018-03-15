@@ -22,6 +22,7 @@
 
 <div id="traders-data" tal:define="traders python:context.getTradersAllData();
                  fields python:['No', 'Nom', 'Pseudo', 'Mail', 'Tel.', 'age', 'Inscription', 'Ville', 'Instrument'];
+                 fields2 python:['No', 'Nom', 'Prenom', 'Pseudo', 'Mail', 'Tel.', 'age', 'Inscription', 'Ville', 'Instrument'];
                  ">
     <table id="mareetraders" class="table-responsive">
     <thead>
@@ -47,6 +48,30 @@
         </span>
     </tbody>
     </table>
+
+<hr />
+<h2>CSV</h2>
+<div tal:define="line1 python:'|'.join(fields2) + u'\n'">
+<?python
+lines = u''
+for tr in traders:
+    lines += str(tr['number']) + u'|'
+    lines += tr['name'] + u'|'
+    lines += tr['firstname'] + u'|'
+    lines += tr['pseudo'] + u'|'
+    lines += tr['email'] + u'|'
+    lines += tr['mobile'] + u'|'
+    lines += str(tr['age']) + u'|'
+    lines += tr['date'] + u'|'
+    lines += tr['town'] + u'|'
+    lines += tr['instrument']
+    lines += u'\n'
+?>
+
+<pre tal:content="string:${line1}${lines}">
+
+</pre>
+</div>
 </div>
 
 <script type="text/javascript">

@@ -51,22 +51,8 @@
 
 <hr />
 <h2>CSV</h2>
-<div tal:define="line1 python:'|'.join(fields2) + u'\n'">
-<?python
-lines = u''
-for tr in traders:
-    lines += str(tr['number']) + u'|'
-    lines += unicode(tr['name']) + u'|'
-    lines += unicode(tr['firstname']) + u'|'
-    lines += unicode(tr['pseudo']) + u'|'
-    lines += tr['email'] + u'|'
-    lines += tr['mobile'] + u'|'
-    lines += str(tr['age']) + u'|'
-    lines += tr['date'] + u'|'
-    lines += unicode(tr['town']) + u'|'
-    lines += unicode(tr['instrument'])
-    lines += u'\n'
-?>
+<div tal:define="line1 python:'|'.join(fields2) + u'\n';
+                 lines python:context.getTradersAllDataCSV()">
 
 <pre tal:content="string:${line1}${lines}">
 

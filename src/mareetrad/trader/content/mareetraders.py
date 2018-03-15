@@ -16,6 +16,7 @@ from AccessControl import getSecurityManager
 import logging
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import getUtility
+from Products.CMFPlone.utils import safe_unicode
 
 from mareetrad.trader.utils import validateEmail
 from mareetrad.trader.utils import setUnsecure
@@ -174,6 +175,23 @@ class mareeTraders(Container):
             traders.append(tr)
         # import pdb;pdb.set_trace()
         return traders
+
+    def getTradersAllDataCSV(self):
+        traders = self.getTradersAllData()
+        lines = u''
+        for tr in traders:
+            lines += str(tr['number']) + u'|'
+            lines += safe_unicode(tr['name']) + u'|'
+            lines += safe_unicode(tr['firstname']) + u'|'
+            lines += safe_unicode(tr['pseudo']) + u'|'
+            lines += safe_unicode(tr['email']) + u'|'
+            lines += safe_unicode(tr['mobile']) + u'|'
+            lines += str(tr['age']) + u'|'
+            lines += safe_unicode(tr['date']) + u'|'
+            lines += safe_unicode(tr['town']) + u'|'
+            lines += safe_unicode(tr['instrument'])
+            lines += u'\n'
+        return lines
 
     def getTraders(self, byDate=False):
         """

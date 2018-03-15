@@ -31,6 +31,7 @@ class importTraders(form.Form):
             # logger.info(line)
             # logger.info('-----------')
             attrs = line.split('|')
+            # logger.info(attrs[8][0])
             try:
                 trader = api.content.create(
                     container=self.context,

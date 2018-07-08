@@ -11,7 +11,7 @@ from mareetrad.trader.interfaces import IMareetradTraderSettings
 from plone.i18n.normalizer.interfaces import INormalizer
 
 
-logger = logging.getLogger('mareetrad.trader/vocabs')
+logger = logging.getLogger('concertina.player/vocabs')
 
 
 def make_terms(terms, rawLinesStr):
@@ -35,7 +35,6 @@ def make_voc_with_blank(terms, linesstr):
 
 
 class _Instruments(object):
-    """Voc. without grok"""
     implements(IVocabularyFactory)
 
     def __call__(self, context):

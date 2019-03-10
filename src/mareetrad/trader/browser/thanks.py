@@ -11,10 +11,11 @@ from AccessControl import getSecurityManager
 from AccessControl.SecurityManagement import (
     newSecurityManager, setSecurityManager)
 from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from Products.CMFPlone.utils import safe_unicode
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+# from Products.CMFPlone.utils import safe_unicode
 # from mareetrad.trader.utils import mareeTradMailActivated
+from mareetrad.trader.utils import mailMultipart
 import logging
 
 
@@ -102,9 +103,12 @@ class thanksTraderView(BrowserView):
     def sendToTrader(self, mails_activated, htmlContent, recipient, sender):
         if not mails_activated:
             return
+        """
         message = MIMEMultipart()
         part = MIMEText(safe_unicode(htmlContent), u'html', _charset='utf-8')
         message.attach(part)
+        """
+        message = mailMultipart(htmlContent)
         subject = u'[Marée Trad] Votre inscription'
         try:
             api.portal.send_email(sender,
@@ -122,16 +126,20 @@ class thanksTraderView(BrowserView):
                          sender):
         if not send_notification:
             return
-        message = MIMEMultipart()
+
+        # message = MIMEMultipart()
         messageContent = u'<h3>Une nouvelle inscription'
         messageContent += u' à la marée trad :</h3>'
         messageContent += u'<br />'
         messageContent += htmlContent
+        """
         part = MIMEText(
             safe_unicode(messageContent),
             u'html',
             _charset='utf-8')
         message.attach(part)
+        """
+        message = mailMultipart(messageContent)
         subject = u'[Marée Trad] Nouvelle inscription...'
         try:
             api.portal.send_email(sender,

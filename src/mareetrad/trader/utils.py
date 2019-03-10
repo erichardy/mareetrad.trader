@@ -9,6 +9,10 @@ from AccessControl.User import UnrestrictedUser as BaseUnrestrictedUser
 # from AccessControl import getSecurityManager
 from AccessControl.SecurityManagement import (
     newSecurityManager, setSecurityManager)
+from Products.CMFPlone.utils import safe_unicode
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 from mareetrad.trader import _
 
 logger = logging.getLogger('mareetrad:dataset')
@@ -66,6 +70,48 @@ def mareeTradMailActivated(context):
     if context.portal_type == 'trader':
         context = context.aq_parent
     return context.mails_activated
+
+
+html_head = u'<!doctype html><html><body>'
+html_trail = u'</body></html>'
+
+
+def remove_html_markup(s):
+    tag = False
+    quote = False
+    out = ''
+    for c in s:
+        if c == '<' and not quote:
+            tag = True
+        elif c == '>' and not quote:
+            tag = False
+        elif (c == '"' or c == "'") and tag:
+            quote = not quote
+        elif not tag:
+            out = out + c
+    return out
+
+
+def mailMultipart(raw):
+    """
+    Crée un message MIMEMultipart à partir d'un texte contenant du HTML.
+    Voir candidate_events.py et thesis_events.py
+    :param raw: du texte qui contient du html
+    :type raw: string
+    :returns: un MuiltiPart message que l'on peut envoyer aver
+        api.portal.send_email(..., body= message)
+    """
+    message = MIMEMultipart('alternative')
+
+    raw_text = remove_html_markup(raw)
+    part = MIMEText(safe_unicode(raw_text), u'plain', _charset='utf-8')
+    message.attach(part)
+
+    raw_html = html_head + raw + html_trail
+    part = MIMEText(safe_unicode(raw_html), u'html', _charset='utf-8')
+    message.attach(part)
+
+    return message
 
 
 def publish(obj):
